@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>纯CSS3悬停图标3D翻转动效</title>
+		<style type="text/css">
+			html,
+			body {
+				background-color: #ddd;
+			}
+			#dice_wrapper {
+				perspective: 0px;
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				transform: translate(-50%, -50%);
+				top: 50%;
+				left: 50%;
+				cursor: pointer;
+				box-shadow: 0 10px 30px 2px rgba(0, 0, 0, 0.3);
+			}
+			#dice {
+				transform-origin: 50% 50%;
+			}
+			#dice,
+			#dice div {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				backface-visibility: hidden;
+				transform-style: preserve-3d;
+				transition: transform 0.2s ease-in-out;
+			}
+			#dice div span {
+				transform: translate(-50%, -50%);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				height: 70%;
+				width: 50%;
+				border: 0;
+				overflow: hidden;
+			}
+			#dice div span:before {
+				content: " ";
+				position: absolute;
+				margin-left: 2rem;
+				border: 2.2em solid #fff;
+				height: 100%;
+				width: 100%;
+				border-radius: 2.2rem;
+			}
+			#dice div span:after {
+				content: " ";
+				position: absolute;
+				height: 2.2em;
+				width: 100%;
+				top: 43%;
+				background-color: #fff;
+			}
+			#front {
+				background-color: #3b5998;
+			}
+			#top {
+				background-color: #fff;
+				transform: translate(0, -100%) rotateX(90deg);
+				transform-origin: bottom center;
+			}
+			#dice #top span:before {
+				border: 2.2em solid #3b5998;
+			}
+			#dice #top span:after {
+				background-color: #3b5998;
+			}
+			#dice_wrapper:hover #dice {
+				transform: translate(0, 50%) rotateX(-90deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="dice_wrapper">
+			<div id="dice">
+				<div id="top">
+					<span></span>
+				</div>
+				<div id="front">
+					<span></span>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
